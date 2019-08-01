@@ -1,0 +1,16 @@
+version: '3'
+services:
+  lb:
+    image: nginx
+    ports:
+    - "80:80"
+    volumes:
+      - ./lb/conf.d:/etc/nginx/conf.d
+  app1:
+    image: nginx
+    volumes:
+      - ./app/html:/usr/share/nginx/html
+  app2:
+    image: nginx
+    volumes:
+      - ./app/html:/usr/share/nginx/html
